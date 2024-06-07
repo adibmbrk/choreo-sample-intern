@@ -4,8 +4,8 @@ FROM node:latest
 # Define work directory
 WORKDIR /app
 
-# Add a non-root user
-RUN groupadd -r myuser && useradd -r -g myuser myuser
+# Add a non-root user with a user ID between 10000 and 20000
+RUN useradd --uid 10001 myuser
 
 # Change ownership of the working directory to the non-root user
 RUN chown -R myuser:myuser /app
